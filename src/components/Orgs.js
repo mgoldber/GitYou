@@ -14,7 +14,6 @@ class Orgs extends Component {
 
     async fetchOrgs(octokit) {
         const result = await octokit.orgs.listForAuthenticatedUser();
-        console.log(result.data);
         this.setState({
             orgs: result.data
         })
@@ -26,7 +25,6 @@ class Orgs extends Component {
     }
 
     handleSelectChange(event) {
-        console.log(event.target.value);
         this.setState({
             selectedOrg: event.target.value
         })

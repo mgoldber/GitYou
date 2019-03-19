@@ -13,7 +13,6 @@ class TeamList extends Component {
 
     async sendInvites(octokit) {
         for (const email of this.state.emailsToSend) {
-            console.log(email);
             const result = await octokit.orgs.createInvitation({
                 headers: {
                     Accept: "application/vnd.github.dazzler-preview+json"
@@ -22,12 +21,10 @@ class TeamList extends Component {
                 email: email,
                 team_ids: this.state.teamsToJoin
             });
-            console.log(result);
         }
     }
 
     handleSubmit() {
-        console.log("handle submit");
         this.sendInvites(this.props.octokit);
     }
 
@@ -38,8 +35,6 @@ class TeamList extends Component {
                 teamsToJoin: nextProps.teams,
                 org: nextProps.org
             });
-            console.log(nextProps.teams);
-            console.log(nextProps.emails);
         }
     }
 

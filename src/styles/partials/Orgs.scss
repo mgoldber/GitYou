@@ -1,4 +1,5 @@
 .Orgs__Component {
+    position: relative;
     ul {
         list-style: none;
     }
@@ -6,5 +7,7 @@
         height: 50px;
         width: 50px;
         border-radius: 50%;
+        position: absolute;
+        right: 0;
     }
 }

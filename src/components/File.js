@@ -15,9 +15,7 @@ class File extends Component {
 
     handleFileRead = (e) => {
         let content = fileReader.result;
-        console.log(content);
         const allEmails = content.split(",");
-        console.log(allEmails);
         this.props.onSetEmails(allEmails);
         this.setState({
             emails: allEmails
@@ -25,7 +23,6 @@ class File extends Component {
     }
 
     handleFiles = (files) => {
-        console.log(files);
         fileReader = new FileReader();
         fileReader.onloadend = this.handleFileRead;
         fileReader.readAsText(files[0]);
