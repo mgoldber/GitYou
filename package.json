@@ -6,8 +6,11 @@
     "react-scripts": "2.1.8"
   },
   "dependencies": {
+    "@octokit/rest": "^16.19.0",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-file-reader": "^1.1.4",
+    "react-file-reader-input": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,25 +1,66 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import LoginForm from './components/LoginForm.js';
+import Github from './components/Github.js';
+import Teams from './components/Teams.js';
+import File from './components/File.js';
+import SendInvites from './components/SendInvites.js';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      usernameLogin: "",
+      passwordLogin: "",
+      octokit: null,
+      emails: [],
+      teams: []
+    };
+  }
+
+  onLoginSubmit = (username, password) => {
+    this.setState({
+      usernameLogin: username,
+      passwordLogin: password
+    });
+  }
+
+  onGetOctokit = (octokit) => {
+    this.setState({
+      octokit: octokit
+    })
+  }
+
+  onSetTeams = (teams) => {
+    this.setState({
+      teams: teams
+    });
+  }
+
+  onSetEmails = (emails) => {
+    this.setState({
+      emails: emails
+    });
+  }
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <LoginForm onLoginSubmit={this.onLoginSubmit} />
+        <Github
+          usernameLogin={this.state.usernameLogin}
+          passwordLogin={this.state.passwordLogin}
+          onGetOctokit={this.onGetOctokit}
+        />
+        <Teams 
+          octokit={this.state.octokit}
+          onSetTeams={this.onSetTeams}
+        />
+        <File 
+
+          onSetEmails={this.onSetEmails}
+        />
+        <SendInvites />
       </div>
     );
   }
