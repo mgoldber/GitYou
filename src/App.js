@@ -4,7 +4,7 @@ import Github from './components/Github.js';
 import Teams from './components/Teams.js';
 import File from './components/File.js';
 import SendInvites from './components/SendInvites.js';
-import './App.css';
+import './styles/styles.scss';
 
 class App extends Component {
   constructor(props) {
@@ -46,21 +46,32 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <LoginForm onLoginSubmit={this.onLoginSubmit} />
-        <Github
-          usernameLogin={this.state.usernameLogin}
-          passwordLogin={this.state.passwordLogin}
-          onGetOctokit={this.onGetOctokit}
-        />
-        <Teams 
-          octokit={this.state.octokit}
-          onSetTeams={this.onSetTeams}
-        />
-        <File 
-
-          onSetEmails={this.onSetEmails}
-        />
-        <SendInvites />
+        <section className="Auth__Component">
+          <LoginForm onLoginSubmit={this.onLoginSubmit} />
+          <Github
+            usernameLogin={this.state.usernameLogin}
+            passwordLogin={this.state.passwordLogin}
+            onGetOctokit={this.onGetOctokit}
+          />
+        </section>
+        <section className="Teams__Component column">
+          <Teams 
+            octokit={this.state.octokit}
+            onSetTeams={this.onSetTeams}
+          />
+        </section>
+        <section className={"File__Component column " + (this.state.teams.length ? 'show' : 'hidden')}>
+          <File 
+            onSetEmails={this.onSetEmails}
+          />
+        </section>
+        <section className={"SendInvites__Component column " + (this.state.emails.length ? 'show' : 'hidden')}>
+          <SendInvites 
+            teams={this.state.teams} 
+            emails={this.state.emails}
+            octokit={this.state.octokit}
+          />
+        </section>
       </div>
     );
   }

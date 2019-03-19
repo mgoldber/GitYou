@@ -1,0 +1,17 @@
+.wrapper {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+.show {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}

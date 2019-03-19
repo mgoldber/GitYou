@@ -4,8 +4,11 @@ class TeamList extends Component {
 
     constructor(props) {
         super(props);
+        this.handleSelectChange = this.handleSelectChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            teams: []
+            teams: [],
+            selectedTeams: []
         }
     }
 
@@ -16,17 +19,28 @@ class TeamList extends Component {
             teams: result.data
         })
     }
-    
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.onSetTeams(this.state.selectedTeams);
+    }
+
+    handleSelectChange(event) {;
+        this.state.selectedTeams.push(parseInt(event.target.value));
+    }
+
     renderTeams() {
         const teamList = this.state.teams.map((team) => {
             return (
-                <form key={team.node_id}>
-                    <input type="checkbox" name="team" value={team.name}></input>{team.name}
-                </form>
+                <li key={team.node_id}>
+                    <input type="checkbox" name="team" value={team.id} onChange={this.handleSelectChange}/>{team.name}
+                </li>
             )
         });
         return (
-            <div>{teamList}</div>
+            <ul>
+                {teamList}
+            </ul>
         )
     }
 
@@ -44,9 +58,10 @@ class TeamList extends Component {
 
     render() {
         return (
-            <section>
+            <div>
                 {this.state.teams.length ? this.renderTeams() : this.renderEmptyState() }
-            </section>
+                <button onClick={this.handleSubmit.bind(this.props.onSetEmails)}>Next</button>
+            </div>
         )
     }
 }

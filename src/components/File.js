@@ -7,6 +7,7 @@ class File extends Component {
 
     constructor(props) {
         super(props);
+        this.handleFileRead = this.handleFileRead.bind(this);
         this.state = {
             emails: []
         }
@@ -17,6 +18,7 @@ class File extends Component {
         console.log(content);
         const allEmails = content.split(",");
         console.log(allEmails);
+        this.props.onSetEmails(allEmails);
         this.setState({
             emails: allEmails
         });
