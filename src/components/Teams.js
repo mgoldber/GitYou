@@ -12,8 +12,9 @@ class TeamList extends Component {
         }
     }
 
-    async fetchTeams(octokit) {
-        const result = await octokit.teams.list({org:'HackerYou'});
+    async fetchTeams(octokit, org) {
+        console.log(await octokit.orgs.listForAuthenticatedUser())
+        const result = await octokit.teams.list({org:org});
         console.log(result.data);
         this.setState({
             teams: result.data
@@ -51,8 +52,8 @@ class TeamList extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.octokit !== nextProps.octokit) {
-            this.fetchTeams(nextProps.octokit)
+        if (this.props.org !== nextProps.org) {
+            this.fetchTeams(nextProps.octokit, nextProps.org)
         }
     }
 

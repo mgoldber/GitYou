@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoginForm from './components/LoginForm.js';
 import Github from './components/Github.js';
+import Orgs from './components/Orgs.js';
 import Teams from './components/Teams.js';
 import File from './components/File.js';
 import SendInvites from './components/SendInvites.js';
@@ -14,6 +15,7 @@ class App extends Component {
       passwordLogin: "",
       octokit: null,
       emails: [],
+      org: "",
       teams: []
     };
   }
@@ -29,6 +31,12 @@ class App extends Component {
     this.setState({
       octokit: octokit
     })
+  }
+
+  onSetOrg = (org) => {
+    this.setState({
+      org: org
+    });
   }
 
   onSetTeams = (teams) => {
@@ -54,9 +62,16 @@ class App extends Component {
             onGetOctokit={this.onGetOctokit}
           />
         </section>
-        <section className="Teams__Component column">
+        <section className="Orgs__Component column">
+          <Orgs
+            octokit={this.state.octokit}
+            onSetOrg={this.onSetOrg}
+          />
+        </section>
+        <section className={"Teams__Component column " + (this.state.org ? 'show' : 'hidden')}>
           <Teams 
             octokit={this.state.octokit}
+            org={this.state.org}
             onSetTeams={this.onSetTeams}
           />
         </section>
@@ -69,6 +84,7 @@ class App extends Component {
           <SendInvites 
             teams={this.state.teams} 
             emails={this.state.emails}
+            org={this.state.org}
             octokit={this.state.octokit}
           />
         </section>

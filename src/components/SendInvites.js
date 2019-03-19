@@ -6,7 +6,8 @@ class TeamList extends Component {
         super(props);
         this.state = {
             emailsToSend: [],
-            teamsToJoin: []
+            teamsToJoin: [],
+            org: ""
         }
     }
 
@@ -17,7 +18,7 @@ class TeamList extends Component {
                 headers: {
                     Accept: "application/vnd.github.dazzler-preview+json"
                 },
-                org: 'HackerYou',
+                org: this.state.org,
                 email: email,
                 team_ids: this.state.teamsToJoin
             });
@@ -34,7 +35,8 @@ class TeamList extends Component {
         if (this.props.emails !== nextProps.emails) {
             this.setState({
                 emailsToSend: nextProps.emails,
-                teamsToJoin: nextProps.teams
+                teamsToJoin: nextProps.teams,
+                org: nextProps.org
             });
             console.log(nextProps.teams);
             console.log(nextProps.emails);
