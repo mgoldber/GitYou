@@ -13,6 +13,27 @@ class File extends Component {
         }
     }
 
+    renderEmails() {
+        const emailList = this.state.emails.map((email) => {
+            return (
+                <li>
+                    {email}
+                </li>
+            )
+        });
+        return (
+            <ul>
+                {emailList}
+            </ul>
+        )
+    }
+
+    renderEmptyState() {
+        return (<div>
+            <p>Please upload file to see emails</p>
+        </div>)
+    }
+
     handleFileRead = (e) => {
         let content = fileReader.result;
         const allEmails = content.split(",");
@@ -30,9 +51,13 @@ class File extends Component {
 
     render() {
         return (
-            <ReactFileReader fileTypes={['.txt']} multipleFiles={false} handleFiles={this.handleFiles}>
-                <button className='btn'>Upload</button>
-            </ReactFileReader>
+            <div>
+                <h2>File Upload</h2>
+                <ReactFileReader fileTypes={['.txt']} multipleFiles={false} handleFiles={this.handleFiles}>
+                    <button className='btn'>Upload</button>
+                </ReactFileReader>
+                {this.state.emails.length ? this.renderEmails() : this.renderEmptyState() }
+            </div>
         )
     }
 }

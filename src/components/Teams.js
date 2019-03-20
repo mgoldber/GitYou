@@ -58,6 +58,7 @@ class TeamList extends Component {
     render() {
         return (
             <div>
+                <h2>Teams</h2>
                 {this.state.teams.length ? this.renderTeams() : this.renderEmptyState() }
                 <button onClick={this.handleSubmit.bind(this.props.onSetEmails)}>Next</button>
             </div>

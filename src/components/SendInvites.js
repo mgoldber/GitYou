@@ -41,6 +41,7 @@ class TeamList extends Component {
     render() {
         return (
             <section>
+                <h2>Send Invites</h2>
                 <button onClick={this.handleSubmit.bind(this)}>Send Invites</button>
             </section>
         )

@@ -60,6 +60,7 @@ class Orgs extends Component {
     render() {
         return (
             <div>
+                <h2>Organizations</h2>
                 {this.state.orgs.length ? this.renderOrgs() : this.renderEmptyState() }
                 <button onClick={this.handleSubmit.bind(this.props)}>Next</button>
             </div>
