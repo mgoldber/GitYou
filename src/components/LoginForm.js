@@ -30,25 +30,19 @@ class LoginForm extends Component {
     render() {
         return (
             <div className="Auth__Component">
-                <h4>GitHub Sign In</h4>
+                <h1>Git-Pell</h1>
                 <form onSubmit={this.handleFormSubmit}>
-                    <label>
-                        Email
-                    </label>
                     <input
                         type="email"
-                        placeholder="email@gmail.com"
+                        placeholder="GitHub Email"
                         id="usernameLogin"
                         required
                         value={this.state.usernameLogin}
                         onChange={this.handleUsernameChange}
                     />
-                    <label>
-                        Password
-                    </label>
                     <input
                         type="password"
-                        placeholder="*******"
+                        placeholder="GitHub Password"
                         id="passwordLogin"
                         required
                         value={this.state.passwordLogin}

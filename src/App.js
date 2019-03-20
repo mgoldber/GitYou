@@ -54,14 +54,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <section className="Auth__Component">
+        <header className="Auth__Component">
           <LoginForm onLoginSubmit={this.onLoginSubmit} />
           <Github
             usernameLogin={this.state.usernameLogin}
             passwordLogin={this.state.passwordLogin}
             onGetOctokit={this.onGetOctokit}
           />
-        </section>
+        </header>
         <section className="Orgs__Component column">
           <Orgs
             octokit={this.state.octokit}

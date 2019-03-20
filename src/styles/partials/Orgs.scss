@@ -2,12 +2,19 @@
     position: relative;
     ul {
         list-style: none;
+        li {
+            padding: 10px;
+        }
     }
     button {
         height: 50px;
         width: 50px;
         border-radius: 50%;
         position: absolute;
+        top: 50%;
         right: 0;
+    }
+    input {
+        margin-right: 20px;
     }
 }

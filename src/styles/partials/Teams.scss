@@ -1,10 +1,23 @@
 .Teams__Component {
+    position: relative;
     ul {
         list-style: none;
+        max-height: 500px;
+        overflow: scroll;
+        li {
+            padding: 10px;
+        }
     }
     button {
+        position: absolute;
         height: 50px;
         width: 50px;
         border-radius: 50%;
+        right: 0;
+        top: 50%;
+        margin-bottom: 20px;
+    }
+    input {
+        margin-right: 20px;
     }
 }

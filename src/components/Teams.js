@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 class TeamList extends Component {
 
@@ -60,7 +62,7 @@ class TeamList extends Component {
             <div>
                 <h2>Teams</h2>
                 {this.state.teams.length ? this.renderTeams() : this.renderEmptyState() }
-                <button onClick={this.handleSubmit.bind(this.props.onSetEmails)}>Next</button>
+                <button onClick={this.handleSubmit.bind(this.props.onSetEmails)}><FontAwesomeIcon icon={faArrowRight} /></button>
             </div>
         )
     }
