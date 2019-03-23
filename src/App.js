@@ -5,6 +5,7 @@ import Orgs from './components/Orgs.js';
 import Teams from './components/Teams.js';
 import File from './components/File.js';
 import SendInvites from './components/SendInvites.js';
+import User from './components/User.js';
 import './styles/styles.scss';
 
 class App extends Component {
@@ -53,7 +54,7 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
+      <div className="App clearfix">
         <header className="Auth__Component">
           <LoginForm onLoginSubmit={this.onLoginSubmit} />
           <Github
@@ -85,6 +86,11 @@ class App extends Component {
             teams={this.state.teams} 
             emails={this.state.emails}
             org={this.state.org}
+            octokit={this.state.octokit}
+          />
+        </section>
+        <section className="User__Component">
+          <User
             octokit={this.state.octokit}
           />
         </section>

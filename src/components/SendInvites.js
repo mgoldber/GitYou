@@ -13,7 +13,7 @@ class TeamList extends Component {
 
     async sendInvites(octokit) {
         for (const email of this.state.emailsToSend) {
-            const result = await octokit.orgs.createInvitation({
+            await octokit.orgs.createInvitation({
                 headers: {
                     Accept: "application/vnd.github.dazzler-preview+json"
                 },
