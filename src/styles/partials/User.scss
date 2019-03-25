@@ -1,4 +1,16 @@
 .User__Component {
     width: 100%;
     clear: both;
+    .team-member-details {
+        padding: 40px;
+        background-color: #d8d8d8;
+        border: 5px solid #888;
+        width: 33%;
+        float: left;
+        img {
+            margin: 0 auto;
+            height: 300px;
+            width: 300px;
+        }
+    }
 }

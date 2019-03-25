@@ -26,7 +26,7 @@ class TeamList extends Component {
         this.props.onSetTeams(this.state.selectedTeams);
     }
 
-    handleSelectChange(event) {;
+    handleSelectChange(event) {
         this.state.selectedTeams.push(parseInt(event.target.value));
     }
 

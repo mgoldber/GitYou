@@ -92,6 +92,7 @@ class App extends Component {
         <section className="User__Component">
           <User
             octokit={this.state.octokit}
+            teamIds={this.state.teams}
           />
         </section>
       </div>
