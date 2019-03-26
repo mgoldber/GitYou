@@ -5,7 +5,7 @@ import Orgs from './components/Orgs.js';
 import Teams from './components/Teams.js';
 import File from './components/File.js';
 import SendInvites from './components/SendInvites.js';
-import User from './components/User.js';
+import Search from './components/Search.js';
 import './styles/styles.scss';
 
 class App extends Component {
@@ -89,12 +89,16 @@ class App extends Component {
             octokit={this.state.octokit}
           />
         </section>
-        <section className="User__Component">
+        <section className="Search__Component">
+          <Search />
+        </section>
+
+        {/* <section className={"User__Component " + (this.state.teams.length ? 'show' : 'hidden')}>
           <User
             octokit={this.state.octokit}
             teamIds={this.state.teams}
           />
-        </section>
+        </section> */}
       </div>
     );
   }
