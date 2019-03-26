@@ -5,7 +5,6 @@ import Orgs from './components/Orgs.js';
 import Teams from './components/Teams.js';
 import File from './components/File.js';
 import SendInvites from './components/SendInvites.js';
-import Search from './components/Search.js';
 import './styles/styles.scss';
 
 class App extends Component {
