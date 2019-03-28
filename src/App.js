@@ -88,16 +88,6 @@ class App extends Component {
             octokit={this.state.octokit}
           />
         </section>
-        <section className="Search__Component">
-          <Search />
-        </section>
-
-        {/* <section className={"User__Component " + (this.state.teams.length ? 'show' : 'hidden')}>
-          <User
-            octokit={this.state.octokit}
-            teamIds={this.state.teams}
-          />
-        </section> */}
       </div>
     );
   }

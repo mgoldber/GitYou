@@ -10,6 +10,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.8.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@octokit/rest": "^16.19.0",
+    "node-fetch": "^2.3.0",
     "node-sass": "^4.11.0",
     "rc-pagination": "^1.17.11",
     "react": "^16.8.4",

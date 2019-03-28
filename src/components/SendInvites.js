@@ -12,15 +12,20 @@ class TeamList extends Component {
     }
 
     async sendInvites(octokit) {
-        for (const email of this.state.emailsToSend) {
-            await octokit.orgs.createInvitation({
-                headers: {
-                    Accept: "application/vnd.github.dazzler-preview+json"
-                },
-                org: this.state.org,
-                email: email,
-                team_ids: this.state.teamsToJoin
-            });
+        for (let email of this.state.emailsToSend) {
+            try {
+                email = email.replace(/\s/g, '');
+                await octokit.orgs.createInvitation({
+                    headers: {
+                        Accept: "application/vnd.github.dazzler-preview+json"
+                    },
+                    org: this.state.org,
+                    email: email,
+                    team_ids: this.state.teamsToJoin
+                })
+            } catch(err) {
+                console.log(err.errors);
+            }
         }
     }
 

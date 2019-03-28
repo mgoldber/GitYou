@@ -44,17 +44,22 @@ class File extends Component {
     }
 
     handleFiles = (files) => {
+        console.log(files);
         fileReader = new FileReader();
+        console.log(fileReader);
         fileReader.onloadend = this.handleFileRead;
+        console.log(files[0]);
         fileReader.readAsText(files[0]);
     }
 
     render() {
         return (
             <div>
-                <h2>File Upload</h2>
+                <h2>File Uploads</h2>
+
+                <h5>Upload list of Emails</h5>
                 <ReactFileReader fileTypes={['.txt']} multipleFiles={false} handleFiles={this.handleFiles}>
-                    <button className='btn'>Upload</button>
+                    <button className='btn'>Upload Emails</button>
                 </ReactFileReader>
                 {this.state.emails.length ? this.renderEmails() : this.renderEmptyState() }
             </div>
